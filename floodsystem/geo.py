@@ -12,6 +12,8 @@ from floodsystem.stationdata import build_station_list
 from . import datafetcher
 from .station import MonitoringStation
 
+#B
+
 def stations_by_distance(stations, p):
     stations = build_station_list()
     names = []
@@ -23,6 +25,8 @@ def stations_by_distance(stations, p):
     tpls = sorted_by_key(tpls,1)
     return tpls
 
+#C
+
 def stations_within_radius(stations, centre, r):
     stations = build_station_list()
     names = []
@@ -32,6 +36,44 @@ def stations_within_radius(stations, centre, r):
         else:
             pass
     return names
+
+#D
+
+def rivers_with_station(stations):
+    stations = build_station_list()
+    rivers = set()
+    for station in stations:
+        rivers.add(station.river)
+    return sorted(list(rivers))
+
+def duplicate_check(list):
+    if len(list) == len(set(list)):
+        return False
+    else:
+        return True
+
+def stations_by_river(stations):
+    rivers_dict = {}
+    for station in stations:
+        rivers_dict[station.river] = None
+
+    for river in rivers_dict:
+        river_station = []
+        for station in stations:
+            if station.river == river:
+                river_station += [station.name]
+
+        rivers_dict[river] = river_station
+
+    return (rivers_dict)
+
+
+
+
+
+
+
+
 
 
 
