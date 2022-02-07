@@ -13,11 +13,15 @@ def test_stations_by_distance():
     p = (52.2053, 0.1218)
     x = stations_by_distance(stations, p)
 
+    assert len(x) > 0
+
     assert x[0][2] < x[1][2]
     
     assert type(x[0]) == tuple
     assert type(x[0][1]) == str
     assert type(x[0][2]) == float
+
+
 
 
 #def test_stations_within_radius():
