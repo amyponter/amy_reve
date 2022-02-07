@@ -109,9 +109,9 @@ def test_rivers_with_station():
     assert type(z) == list
     assert type(z[0]) == str
 
-    no_stations_per_river = stations_by_river(stations)
-    assert stations_by_river['river_b'] == [stationb, stationc]
-    assert stations_by_river['river_a'] == [stationa]
+    output = stations_by_river(stations)
+    assert output['river_b'] == ['Station B', 'Station C']
+    assert output['river_a'] == ['Station A']
 
 
 
