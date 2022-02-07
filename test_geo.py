@@ -47,7 +47,6 @@ def test_stations_within_radius():
     r = 10
 
     y = stations_within_radius(stations, centre, r)
-    assert type(y[0]) == list
 
     stationa = MonitoringStation(station_id='station_id_a',
                                  measure_id='measure_id_a',
@@ -75,12 +74,11 @@ def test_stations_within_radius():
     assert len(stations_in_r) == 2
     assert stations_in_r[0] == "Station A"
     assert stations_in_r[1] == "Station B"
-
+    assert type(y) == list
+    assert type(y[0]) == str
 
 def test_rivers_with_station():
     stations = build_station_list()
-    z = rivers_with_station(stations)
-    assert type(z[0]) == list
 
     stationa = MonitoringStation(station_id='station_id_a',
                                  measure_id='measure_id_a',
@@ -108,6 +106,8 @@ def test_rivers_with_station():
     assert len(z) == 2
     assert 'river_a' in z
     assert 'river_b' in z
+    assert type(z) == list
+    assert type(z[0]) == str
 
     no_stations_per_river = stations_by_river(stations)
     assert stations_by_river['river_b'] == [stationb, stationc]
