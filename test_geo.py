@@ -43,10 +43,9 @@ def test_stations_by_distance():
 
 def test_stations_within_radius():
     stations = build_station_list()
-    centre = (52.2053, 0.1218)
-    r = 10
+    centre = (0.0, 0.0)
+    r = 200
 
-    y = stations_within_radius(stations, centre, r)
 
     stationa = MonitoringStation(station_id='station_id_a',
                                  measure_id='measure_id_a',
@@ -70,12 +69,12 @@ def test_stations_within_radius():
                                  river='river_c',
                                  town='town_c') 
     stations = [stationa, stationb, stationc]
-    stations_in_r = sorted([i.name for i in stations_within_radius(stations, (0., 0.), 200)])
-    assert len(stations_in_r) == 2
-    assert stations_in_r[0] == "Station A"
-    assert stations_in_r[1] == "Station B"
-    assert type(y) == list
-    assert type(y[0]) == str
+    output = stations_within_radius(stations, centre, r)
+    assert len(output) == 2
+    assert output[0] == "Station A"
+    assert output[1] == "Station B"
+    assert type(output) == list
+    assert type(output[0]) == str
 
 def test_rivers_with_station():
     stations = build_station_list()
