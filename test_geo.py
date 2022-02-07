@@ -1,7 +1,7 @@
 from floodsystem.utils import sorted_by_key  # noqa
 from haversine import haversine
 from floodsystem.stationdata import build_station_list
-from . import datafetcher
+import floodsystem.datafetcher
 from floodsystem.station import MonitoringStation
 from floodsystem.geo import stations_by_distance
 from floodsystem.geo import stations_within_radius
