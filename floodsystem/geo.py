@@ -17,12 +17,14 @@ from .station import MonitoringStation
 def stations_by_distance(stations, p):
     stations = build_station_list()
     names = []
+    towns = []
     distance = []
     for station in stations:
         names.append(station.name)
+        towns.append(station.town)
         distance.append(haversine(p, station.coord))
-    tpls = list(zip(names, distance))
-    tpls = sorted_by_key(tpls,1)
+    tpls = list(zip(names, towns, distance))
+    tpls = sorted_by_key(tpls,2)
     return tpls
 
 #C
