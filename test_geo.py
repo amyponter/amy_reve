@@ -17,7 +17,7 @@ def test_stations_by_distance():
     
     assert type(x[0]) == tuple
     assert type(x[0][1]) == str
-    assert type(x[0][2]) == tuple
+    assert type(x[0][2]) == float
 
 
 #def test_stations_within_radius():
