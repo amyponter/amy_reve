@@ -22,6 +22,7 @@ test:
   - python Task1B.py
   - python Task1C.py
   - python Task1D.py
-
+  - python task1E.py
+  - python task1F.py
   - python Task2A.py
   - python Task2D.py
