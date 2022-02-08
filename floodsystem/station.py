@@ -5,6 +5,13 @@
 for manipulating/modifying station data
 
 """
+def inconsistant_typical_range_stations(stations):
+    inconsistant_stations = []
+    for station in stations:
+        if MonitoringStation.typical_range_consistant(station) == False:
+            inconsistant_stations += [station.name]
+        else:
+            pass
 
 
 class MonitoringStation:
