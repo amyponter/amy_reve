@@ -12,7 +12,8 @@ def inconsistant_typical_range_stations(stations):
             inconsistant_stations += [station.name]
         else:
             pass
-
+    
+    return inconsistant_stations
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
