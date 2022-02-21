@@ -81,7 +81,7 @@ def rivers_by_station_number(stations, N):
             if station.river == river:
                 station_num += 1
         rivers_with_station.append((river,station_num))
-
+    
     sorted_rivers_with_stations = sorted(rivers_with_station, reverse = True, key= lambda i:i[1] )
 
     largest = sorted_rivers_with_stations[:N]
@@ -92,7 +92,8 @@ def rivers_by_station_number(stations, N):
             largest += [river]
     
         
-    print(len(largest))
+    #print(largest)
+   # print(len(largest))
     return largest
 
 
