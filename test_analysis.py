@@ -17,3 +17,4 @@ def test_analysis():
 
     poly, first_date = analysis.polyfit(times, levels, 2)
     assert first_date == x[0]
+    assert isinstance(poly, np.poly1d)
