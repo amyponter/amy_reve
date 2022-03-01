@@ -18,14 +18,13 @@ def inconsistant_typical_range_stations(stations):
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
-    def typical_range_consistant(self):
-        ##Task 1F
-            if self.typical_range is None:
-                return False
-            elif self.typical_range[1] < self.typical_range[0]:
-                return False 
-            else:
-                return True
+
+    def relative_water_level(self):
+    
+        if self.typical_range_consistant() is True and self.latest_level is not None: 
+            return((self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0]))
+        else:
+            return None
 
     def __init__(self, station_id, measure_id, label, coord, typical_range,
                  river, town):
