@@ -1,38 +1,34 @@
 from floodsystem.station import MonitoringStation
-from floodsystem.utils import sorted_by_key  # noqa
-from haversine import haversine, Unit
-from floodsystem.stationdata import update_water_levels, build_station_list
+#from floodsystem.stationdata import *
 
 
+##Task 2B
 def stations_level_over_threshold(stations, tol):
-    station_list=[]
+    station_list = []
     
     for station in stations:
-
-        try:
-            if station.relative_water_level() > tol:
-                station_list.append((station.name, station.relative_water_level()))
-            else: pass
-        except: 
+        if station.relative_water_level() is not None and station.relative_water_level() > tol:
+            station_list += [(station.name, station.relative_water_level())]
+        else:
             pass
 
-    sorted_list = sorted_by_key(station_list,1,reverse =True)
 
-    return sorted_list
- 
-stations = build_station_list()
+    return sorted(station_list, key = lambda b: b[1], reverse=True)
 
+##Task 2C
 def stations_highest_rel_level(stations, N):
-    """Requirements for task 2C"""
-    stations_over =[]
-
+    stat = []
     for station in stations:
-        level = station.relative_water_level()
-        
-        if level != None:
-                stations_over.append((station.name, level))
+        if station.relative_water_level() != None:
+            stat += [station]
+        else:
+            pass
+    stations_ordered = sorted(stat, key=lambda b:b.relative_water_level(), reverse=True)
 
+    stat_names_ordered = []
 
-    station_list = sorted_by_key(stations_over,1, reverse=True)
+    for stat in stations_ordered:
+        stat_names_ordered += [(stat.name,stat.relative_water_level())]
     
-    return station_list[0:N]
+    return stat_names_ordered[0:N]
+    #return stations_ordered[0:N]
