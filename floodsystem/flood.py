@@ -12,23 +12,27 @@ def stations_level_over_threshold(stations, tol):
         else:
             pass
 
-
+    # FIX HERE
+    print(sorted(station_list, key = lambda b: b[1], reverse=True))
     return sorted(station_list, key = lambda b: b[1], reverse=True)
 
 ##Task 2C
 def stations_highest_rel_level(stations, N):
     stat = []
+    print(stations)
     for station in stations:
         if station.relative_water_level() != None:
             stat += [station]
         else:
             pass
+
+    print(stat)
     stations_ordered = sorted(stat, key=lambda b:b.relative_water_level(), reverse=True)
 
     stat_names_ordered = []
-
+    print(stations_ordered)
     for stat in stations_ordered:
         stat_names_ordered += [(stat.name,stat.relative_water_level())]
-    
+    print(stat_names_ordered)
     return stat_names_ordered[0:N]
     #return stations_ordered[0:N]

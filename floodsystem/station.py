@@ -17,7 +17,9 @@ def inconsistant_typical_range_stations(stations):
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
-
+ 
+    def typical_range_consistant(self):
+        pass
 
     def relative_water_level(self):
     
