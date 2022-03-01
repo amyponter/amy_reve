@@ -1,5 +1,4 @@
 from floodsystem import stationdata, datafetcher, station
-
 stations = stationdata.build_station_list()
 stationdata.update_water_levels(stations)
 
